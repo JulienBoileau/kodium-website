@@ -1,0 +1,33 @@
+<section class="hero">
+    <div id="lottie-container" class="lottie-bg"></div>
+  
+    <div class="hero-overlay" data-aos="fade-up">
+      <h1>
+        <span *ngFor="let line of translations[currentLang].h1">{{ line }}</span>
+      </h1>
+      <div class="tagline-wrapper">
+        <p class="tagline">{{ translations[currentLang].tagline }}</p>
+        <i class="fa-solid fa-lightbulb code-icon"></i>
+      </div>
+      <div class="hero-actions">
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2wtGJ4buob3ljo9Xfj68TIpI821PdNlrztl0kUPU68qvxYN_WKUZh58tjbMrwtsqs02JcGO65u" target="_blank" class="cta-button">
+            {{ translations[currentLang].booking }} <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <div class="social-icons">
+          <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="location">
+      <span class="pulse-indicator"></span>
+      Lyon, {{ currentTime }}
+    </div>
+  
+    <div class="scroll-down">↓ {{ translations[currentLang].scrollDown }}</div>
+  </section>
+  
+  <app-services [title]="translations[currentLang].servicesTitle"></app-services>
+  <app-apps-web-mobile></app-apps-web-mobile>

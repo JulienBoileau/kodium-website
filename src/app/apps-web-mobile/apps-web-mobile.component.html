@@ -1,0 +1,25 @@
+<section class="portfolio-section" data-aos="fade-up" id="apps-web-mobile-section">
+    <h2 class="section-title">Nos réalisations Web</h2>
+  
+    <div class="portfolio-carousel" #carousel>
+      <div 
+        class="portfolio-item" 
+        *ngFor="let project of projects; let i = index"
+        [class.active]="activeIndex === i"
+        (mouseenter)="hoveredIndex = i"
+        (mouseleave)="hoveredIndex = null"
+        (click)="selectProject(i)"
+      >
+        <div class="image-wrapper">
+          <img [src]="project.image" [alt]="project.title">
+          <div class="overlay"></div>
+          <div class="click-overlay" *ngIf="activeIndex === i">
+            <a [href]="project.link" target="_blank" class="view-btn">Voir le site</a>
+          </div>
+        </div>
+        <div class="tags">
+          <span *ngFor="let tag of project.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </section>

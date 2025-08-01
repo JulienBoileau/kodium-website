@@ -1,0 +1,36 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="logo">
+      <img src="assets/logo-kodium.png" alt="Logo" class="logo-img" />
+      Kodium.
+    </div>
+
+    <div class="nav-actions">
+      <div class="language-switcher" (click)="toggleLangMenu()" [class.open]="langMenuOpen">
+        <i class="fa-solid fa-globe"></i>
+        <div class="lang-dropdown" *ngIf="langMenuOpen">
+          <div (click)="switchLang('fr')">
+            <img src="assets/fr.png" class="flag-icon" alt="FR" /> FR
+          </div>
+          <div (click)="switchLang('en')">
+            <img src="assets/uk.png" class="flag-icon" alt="EN" /> ENG
+          </div>
+        </div>
+      </div>
+      <button class="contact-btn" (click)="onContactClick()">
+        {{ translations.contact }}
+        <span class="arrow-icon">→</span>
+      </button>
+    </div>
+
+    <div class="burger" (click)="toggleMenu()" [class.open]="menuOpen">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" [class.show]="menuOpen">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>

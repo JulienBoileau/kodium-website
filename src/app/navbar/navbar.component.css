@@ -1,0 +1,231 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  padding: 20px 0;
+}
+
+.navbar-container {
+  max-width: 98%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.language-switcher {
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.language-switcher i {
+  font-size: 0.9rem;
+}
+
+.language-switcher:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.lang-dropdown div {
+  padding: 10px 20px;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lang-dropdown div:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.flag-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+}
+
+/* Bouton "Menu" */
+.menu-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+/* Bouton "Contact Us" */
+.contact-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn .arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.contact-btn:hover .arrow-icon,
+.contact-btn:active .arrow-icon {
+  transform: translateX(6px); /* Flèche glisse à droite */
+}
+
+.contact-btn:hover {
+  background: #bdbcbc;
+}
+
+/* Icones dans les boutons */
+.icon {
+  font-size: 1.1rem;
+}
+
+/* Cacher menu desktop en mobile */
+@media (max-width: 768px) {
+
+  .nav-actions {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  .nav-actions button {
+    margin-left: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .burger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  
+  .burger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .burger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+  }
+  
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .mobile-menu.show {
+    display: flex;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-actions {
+      display: none;
+    }
+  
+    .burger {
+      display: flex;
+    }
+  }
