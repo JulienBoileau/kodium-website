@@ -1,0 +1,150 @@
+<section class="contact-section">
+    <div class="contact-container" data-aos="fade-up" data-aos-duration="800">
+  
+        <div class="contact-title-row">
+            <h1 class="contact-title">{{ t.title }}</h1>
+          
+            <div class="info-wrapper title-info">
+              <div class="info-icon">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+          
+              <div class="info-tooltip">
+                Vos informations ne seront jamais revendues à des tiers.<br />
+                Elles sont récoltées par Kodium uniquement dans le but de répondre à votre demande de contact.
+              </div>
+            </div>
+          </div>
+          
+      <p class="contact-subtitle">
+        {{ t.subtitle }}
+      </p>
+  
+      <!-- Message de succès -->
+      <div class="status-banner success" *ngIf="success" id="successBanner">
+        <i class="fa-solid fa-circle-check icon"></i>
+        <span>{{ t.successMessage }}</span>
+      </div>
+  
+      <!-- Message d'erreur -->
+      <div class="status-banner error" *ngIf="error">
+        <i class="fa-solid fa-circle-exclamation icon"></i>
+        <span>{{ error }}</span>
+      </div>
+  
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="contact-form">
+
+  
+        <!-- Honeypot (captcha invisible) -->
+        <input
+          type="text"
+          name="website"
+          [(ngModel)]="honeypot"
+          class="honeypot"
+          autocomplete="off"
+        />
+
+        <div class="form-group" id="profile">
+          <label class="profile-label">Votre profil <span id="profile-desc">(Sélectionnez)</span></label>
+        </div>
+  
+        <!-- Type : Particulier / Entreprise -->
+        <div class="type-card-group">
+          
+          <label class="type-card" [class.selected]="form.type === 'particulier'">
+            <input
+              type="radio"
+              name="type"
+              value="particulier"
+              [(ngModel)]="form.type"
+              required
+            />
+            <div class="card-content">
+              <i class="fa-solid fa-user"></i>
+              <span>{{ t.individual }}</span>
+            </div>
+          </label>
+
+          <label class="type-card" [class.selected]="form.type === 'entreprise'">
+            <input
+              type="radio"
+              name="type"
+              value="entreprise"
+              [(ngModel)]="form.type"
+              required
+            />
+            <div class="card-content">
+              <i class="fa-solid fa-building"></i>
+              <span>{{ t.company }}</span>
+            </div>
+          </label>
+
+        </div>
+
+  
+        <!-- Champ entreprise conditionnel -->
+        <div class="form-group" *ngIf="form.type === 'entreprise'">
+          <label>{{ t.companyLabel }}</label>
+          <input
+            type="text"
+            name="company"
+            [(ngModel)]="form.company"
+            [placeholder]="t.companyLabel"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label>{{ t.nameLabel }}</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="form.name"
+            required
+            [placeholder]="t.namePlaceholder"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label>{{ t.emailLabel }}</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            [placeholder]="t.emailPlaceholder"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label>{{ t.phoneLabel }}</label>
+          <input
+            type="tel"
+            name="phone"
+            [(ngModel)]="form.phone"
+            [placeholder]="t.phonePlaceholder"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label>{{ t.messageLabel }}</label>
+          <textarea
+            name="message"
+            [(ngModel)]="form.message"
+            required
+            [placeholder]="t.messagePlaceholder"
+          ></textarea>
+        </div>
+  
+        <button
+          class="submit-btn"
+          type="submit"
+          [disabled]="contactForm.invalid || loading"
+        >
+          <span *ngIf="!loading">{{ t.send }}</span>
+          <span *ngIf="loading">{{ t.sending }}</span>
+        </button>
+  
+      </form>
+    </div>
+  </section>
+  

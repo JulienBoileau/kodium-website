@@ -1,0 +1,42 @@
+<section class="lead-section" id="generation-de-leads-section" data-aos="fade-up">
+  <div class="lead-container">
+
+    <!-- Partie gauche -->
+    <div class="lead-text" data-aos="fade-right">
+      <h2 class="lead-subtitle">{{ translations[currentLang].subtitle }}</h2>
+      <h1 class="lead-title">{{ translations[currentLang].title }}</h1>
+      <p class="lead-description">{{ translations[currentLang].description }}</p>
+
+      <a routerLink="/contact" class="lead-btn">
+        <span>→</span> {{ translations[currentLang].button }}
+      </a>
+    </div>
+
+    <!-- Partie droite : cartes icônes -->
+    <div class="lead-infos">
+
+      <div class="info-item" data-aos="zoom-in" data-aos-delay="0">
+        <div class="info-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <h4>{{ translations[currentLang].info1 }}</h4>
+      </div>
+
+      <div class="info-item" data-aos="zoom-in" data-aos-delay="200">
+        <div class="info-icon">
+          <i class="fa-solid fa-crop-simple"></i>
+        </div>
+        <h4>{{ translations[currentLang].info2 }}</h4>
+      </div>
+
+      <div class="info-item" data-aos="zoom-in" data-aos-delay="400">
+        <div class="info-icon">
+          <i class="fa-solid fa-palette"></i>
+        </div>
+        <h4>{{ translations[currentLang].info3 }}</h4>
+      </div>
+
+    </div>
+
+  </div>
+</section>

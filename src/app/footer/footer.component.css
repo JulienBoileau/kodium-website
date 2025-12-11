@@ -1,0 +1,90 @@
+.footer {
+    width: 100%;
+    padding: 50px 20px 25px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Poppins", sans-serif;
+    margin-top: 0px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  
+  .footer-container {
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* IMPORTANT : évite que ça se compacte */
+    gap: 20px;
+  }
+  
+  
+  /* Logo + texte */
+  .footer-logo {
+    width: 55px;
+    opacity: 0.9;
+  }
+  .footer-tagline {
+    margin-top: 0px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+  
+  /* Liens */
+  .footer-links {
+    flex: 1;                 /* ← force cette zone à occuper l’espace central */
+    display: flex;
+    justify-content: center; /* ← centre HORIZONTALEMENT les liens */
+    gap: 35px;               /* ← un peu plus d’espace entre les liens */
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+  }
+  .footer-links a:hover {
+    color: white;
+  }
+  
+  /* Réseaux sociaux */
+  .footer-socials {
+    display: flex;
+    gap: 30px;               /* ← espace > pour ne pas être collé aux liens */
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 150px;        /* ← stabilise la zone pour éviter les collisions */
+  }
+  .footer-socials a {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.65);
+    transition: 0.25s ease;
+  }
+  .footer-socials a:hover {
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* Bas de page */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 35px;
+    font-size: 0.8rem;
+    opacity: 0.55;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+
+    .footer {
+      box-sizing: border-box;
+    }
+
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  

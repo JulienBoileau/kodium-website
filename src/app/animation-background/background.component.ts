@@ -14,50 +14,58 @@ export class BackgroundComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const canvas = this.canvasRef.nativeElement;
-
-    const renderer = new THREE.WebGLRenderer({ canvas });
+  
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
+  
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    camera.updateProjectionMatrix();
-
+  
+    const getSize = () => {
+      const width = window.innerWidth;
+      const height = window.visualViewport?.height || window.innerHeight; // 👈 Fix mobile
+  
+      renderer.setSize(width, height, false);
+      uniforms.resolution.value.set(width, height);
+  
+      return { width, height };
+    };
+  
     const uniforms = {
-      resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+      resolution: { value: new THREE.Vector2() },
       time: { value: 0.0 },
       xScale: { value: 1.0 },
       yScale: { value: 0.5 },
       distortion: { value: 0.05 }
     };
+  
+    const geometry = new THREE.PlaneGeometry(2, 2);
 
-    const geometry = new THREE.BufferGeometry();
-    const vertices = new Float32Array([
-      -1, -1, 0,
-       1, -1, 0,
-      -1,  1, 0,
-       1, -1, 0,
-      -1,  1, 0,
-       1,  1, 0
-    ]);
-    geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
-
+    
+  
     const material = new THREE.RawShaderMaterial({
       uniforms,
       vertexShader,
-      fragmentShader,
-      side: THREE.DoubleSide
+      fragmentShader
     });
-
+  
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
-
+  
+    // 📌 Appel initial
+    getSize();
+  
+    // 📌 Resize dynamique
+    window.addEventListener('resize', getSize);
+    window.visualViewport?.addEventListener('resize', getSize);
+  
     const animate = () => {
       uniforms.time.value += 0.01;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
-
+  
     animate();
   }
+  
 }

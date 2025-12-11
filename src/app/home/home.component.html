@@ -7,23 +7,45 @@
       </h1>
       <div class="tagline-wrapper">
         <p class="tagline">{{ translations[currentLang].tagline }}</p>
-        <i class="fa-solid fa-lightbulb code-icon"></i>
+        <i class="fa-solid fa-link code-icon"></i>
       </div>
       <div class="hero-actions">
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2wtGJ4buob3ljo9Xfj68TIpI821PdNlrztl0kUPU68qvxYN_WKUZh58tjbMrwtsqs02JcGO65u" target="_blank" class="cta-button">
-            {{ translations[currentLang].booking }} <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
+
+        <div class="hero-buttons">
+          <!-- Bouton Prendre RDV -->
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2wtGJ4buob3ljo9Xfj68TIpI821PdNlrztl0kUPU68qvxYN_WKUZh58tjbMrwtsqs02JcGO65u"
+            target="_blank"
+            class="cta-button">
+            {{ translations[currentLang].booking }}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+      
+          <!-- Bouton Appeler -->
+          <button class="call-button" (click)="togglePhone()">
+            {{ translations[currentLang].call }}
+            <i class="fa-solid fa-phone"></i>
+          </button>
+        </div>
+      
+        <!-- Bloc affichage numéro -->
+        <div class="phone-reveal" *ngIf="showPhone">
+          <i class="fa-solid fa-phone icon"></i>
+          <a class="phone-number" href="tel:0612345678">06 49 10 84 16</a>
+        </div>
+      
         <div class="social-icons">
           <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/ai_voicer_app/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/kodium-digital/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
+      
       </div>
+      
     </div>
   
     <div class="location">
       <span class="pulse-indicator"></span>
-      Lyon, {{ currentTime }}
+      France, {{ currentTime }}
     </div>
   
     <div class="scroll-down">↓ {{ translations[currentLang].scrollDown }}</div>
@@ -31,3 +53,5 @@
   
   <app-services [title]="translations[currentLang].servicesTitle"></app-services>
   <app-apps-web-mobile></app-apps-web-mobile>
+  <app-generation-de-leads></app-generation-de-leads>
+  <app-actifs-digitaux></app-actifs-digitaux>

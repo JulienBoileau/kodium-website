@@ -1,25 +1,45 @@
 <section class="portfolio-section" data-aos="fade-up" id="apps-web-mobile-section">
-    <h2 class="section-title">Nos réalisations Web</h2>
   
-    <div class="portfolio-carousel" #carousel>
-      <div 
-        class="portfolio-item" 
-        *ngFor="let project of projects; let i = index"
-        [class.active]="activeIndex === i"
-        (mouseenter)="hoveredIndex = i"
-        (mouseleave)="hoveredIndex = null"
-        (click)="selectProject(i)"
-      >
+  <div class="portfolio-header">
+    <h2 class="section-title">{{ title }}</h2>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="portfolio-carousel" #carousel (scroll)="onCarouselScroll()">
+      <div class="portfolio-item" *ngFor="let project of projects">
+        
         <div class="image-wrapper">
-          <img [src]="project.image" [alt]="project.title">
-          <div class="overlay"></div>
-          <div class="click-overlay" *ngIf="activeIndex === i">
-            <a [href]="project.link" target="_blank" class="view-btn">Voir le site</a>
+          <img [src]="project.image" [alt]="project.title" />
+
+          <div class="overlay">
+            <a [href]="project.link" target="_blank" class="view-btn">
+              {{ currentLang === 'fr' ? 'Voir le site' : 'View website' }}
+            </a>
           </div>
         </div>
+
         <div class="tags">
           <span *ngFor="let tag of project.tags">{{ tag }}</span>
         </div>
+
       </div>
     </div>
-  </section>
+
+    <!-- Flèche gauche : visible seulement si on a scrollé -->
+    <button class="carousel-arrow left" *ngIf="canScrollLeft" (click)="scrollPrev()">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    
+    <button class="carousel-arrow right" (click)="scrollNext()">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    
+  </div>
+
+  <div class="pricing-btn-wrapper">
+    <a routerLink="/tarifs" class="pricing-btn">
+      Tarifs <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+</section>

@@ -1,9 +1,11 @@
 .bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    display: block;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  width: 100%;     /* 👍 évite le dépassement horizontal */
+  height: 100%;    /* 👍 on gère la vraie hauteur via JS */
+
+  display: block;
+}

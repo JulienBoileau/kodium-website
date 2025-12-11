@@ -1,13 +1,27 @@
 <header class="navbar">
   <div class="navbar-container">
     <div class="logo">
-      <img src="assets/logo-kodium.png" alt="Logo" class="logo-img" />
-      Kodium.
+      <img src="assets/logo-kodium.png" alt="Logo création de site web Lyon" class="logo-img" />
+      <a routerLink="/" class="logo-link">Kodium.</a>
     </div>
 
     <div class="nav-actions">
+
+      <a (click)="scrollToServices()" class="nav-link">
+        {{ translations[currentLang].services }}
+      </a>
+
+      <a routerLink="/tarifs" class="nav-link">
+        {{ translations[currentLang].tarifs }}
+      </a>
+
+      <a routerLink="/blog" class="nav-link">
+        {{ translations[currentLang].blog }}
+      </a>
+
       <div class="language-switcher" (click)="toggleLangMenu()" [class.open]="langMenuOpen">
         <i class="fa-solid fa-globe"></i>
+
         <div class="lang-dropdown" *ngIf="langMenuOpen">
           <div (click)="switchLang('fr')">
             <img src="assets/fr.png" class="flag-icon" alt="FR" /> FR
@@ -17,8 +31,9 @@
           </div>
         </div>
       </div>
-      <button class="contact-btn" (click)="onContactClick()">
-        {{ translations.contact }}
+
+      <button class="contact-btn" routerLink="/contact">
+        {{ translations[currentLang].contact }}
         <span class="arrow-icon">→</span>
       </button>
     </div>
@@ -29,8 +44,12 @@
   </div>
 
   <nav class="mobile-menu" [class.show]="menuOpen">
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a routerLink="/"><i class="fa-solid fa-house"></i> {{ currentLang === 'fr' ? 'Accueil' : 'Home' }}</a>
+    <a routerLink="/blog"><i class="fa-solid fa-newspaper"></i> {{ currentLang === 'fr' ? 'Blog' : 'Blog' }}</a>
+    <a (click)="scrollToServices()"><i class="fa-solid fa-bell-concierge"></i> {{ translations[currentLang].services }}</a>
+    <a routerLink="/tarifs"><i class="fa-solid fa-sack-dollar"></i> {{ currentLang === 'fr' ? 'Tarifs' : 'Pricing' }}</a>
+    <a routerLink="/contact"><i class="fa-solid fa-paper-plane"></i> {{ translations[currentLang].contact }}</a>
+    <a routerLink="/mentions-legales"><i class="fa-solid fa-file-shield"></i> {{ currentLang === 'fr' ? 'Mentions légales' : 'Legal Notice' }}</a>
   </nav>
 </header>
+

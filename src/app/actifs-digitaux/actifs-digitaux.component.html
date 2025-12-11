@@ -1,0 +1,15 @@
+<section class="actifs-digitaux-section" id="actifs-digitaux-section" data-aos="fade-up">
+    <h2 class="section-title">{{ title }}</h2>
+  
+    <div class="apps-container">
+      <div class="app-card" *ngFor="let app of apps" data-aos="fade-up" data-aos-delay="150">
+        <div class="phone-frame">
+          <img [src]="app.img" [alt]="app.name" />
+        </div>
+        <h3>
+          <a [href]="app.link" target="_blank" class="app-link">{{ app.name }}</a>
+        </h3>
+        <p>{{ app.desc }}</p>
+      </div>
+    </div>
+  </section>

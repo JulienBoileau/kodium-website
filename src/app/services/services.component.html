@@ -1,24 +1,35 @@
-<section class="services" data-aos="fade-up">
-    <h2>{{ title }}</h2>
-  
-    <div class="cards-container">
-        <div
-        class="card"
-        *ngFor="let service of services; let i = index"
-        [class.animate-border]="hoveredIndex === i"
-        (mouseenter)="hoveredIndex = i"
-        (click)="service.title === 'APPS WEB & MOBILE' ? scrollToAppsWebMobile() : null"
-        data-aos="fade-up"
-        [attr.data-aos-delay]="i * 100"
-      >
+<section class="services" data-aos="fade-up" id="services">
+  <h2>{{ title }}</h2>
+
+  <div class="cards-container">
+    <div
+      class="card"
+      *ngFor="let service of services; let i = index"
+      [class.animate-border]="hoveredIndex === i"
+      (mouseenter)="hoveredIndex = i"
+      (mouseleave)="hoveredIndex = null"
+      (click)="
+        service.title === translations[currentLang][0].title ? scrollToAppsWebMobile() :
+        service.title === translations[currentLang][1].title ? scrollToGenerationDeLeads() : 
+        service.title === translations[currentLang][2].title ? scrollToActifsDigitaux() : null
+      "
+      data-aos="fade-up"
+      [attr.data-aos-delay]="i * 100"
+    >
+
+      <div class="icon-wrapper">
         <i class="{{ service.icon }} gradient-icon"></i>
-        <h3>{{ service.title }}</h3>
-        <p class="description">{{ service.description }}</p>
-        <a href="#" class="learn-more">
-          → 
-        </a>
       </div>
+
+      <h3>{{ service.title }}</h3>
+      <p class="description">{{ service.description }}</p>
+
+      <a class="learn-more">→</a>
+
     </div>
-  
-    <button class="cta-button">→ En savoir plus</button>
-  </section>
+  </div>
+
+  <button routerLink="/contact" class="cta-button">
+    → &nbsp;{{ currentLang === 'fr' ? 'En savoir plus' : 'Learn More' }}
+  </button>
+</section>

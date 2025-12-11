@@ -1,142 +1,205 @@
+/* SECTION */
 .services {
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background: rgba(0,0,0,0.95);
+  position: relative;
+  overflow: hidden;
+}
+
+.services h2 {
+  font-size: 2.6rem;
+  margin-bottom: 60px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* GRID */
+.cards-container {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* CARD STYLE */
+.card {
+  position: relative;
+  padding: 38px 28px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  transition: 0.35s ease;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* On hover : légère translation + glow */
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 0 30px rgba(120,67,255,0.25),
+    0 0 15px rgba(57,115,255,0.15);
+}
+
+
+/* -------------------------------------------
+   BORDER ANIMATION PREMIUM
+------------------------------------------- */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 22px;
+  background: linear-gradient(130deg, #9422ff, #3f5efb, #9422ff);
+  background-size: 300% 300%;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.card.animate-border::before,
+.card:hover::before {
+  opacity: 1;
+  animation: borderMove 2.5s linear infinite;
+}
+
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* -------------------------------------------
+   ICON WRAPPER (CERCLE GLASS + NÉON)
+------------------------------------------- */
+
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  margin-bottom: 22px;
+  border: 1px solid rgba(255,255,255,0.18);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+/* Glow circulaire */
+.icon-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, #9148ff55, transparent 70%);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Icone dégradée */
+.gradient-icon {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #b527e0, #5360ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .gradient-icon {
+  transform: scale(1.12);
+}
+
+
+/* -------------------------------------------
+   TITRE + DESC
+------------------------------------------- */
+
+.card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.description {
+  opacity: 0.85;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+/* Fleche */
+.learn-more {
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: 0.25s ease;
+  text-decoration: none;
+  color: white;
+}
+
+.learn-more:hover {
+  opacity: 1;
+  margin-left: 4px;
+}
+
+/* CTA */
+.cta-button {
+  margin-top: 55px;
+  padding: 12px 34px;
+  background: rgba(255, 255, 255, 0.936); /* ➜ fond clair transparent */
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0); /* texte blanc */
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.cta-button:hover {
+  background: rgba(255, 255, 255, 0.468); /* ➜ effet grey/white premium au hover */
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+
+
+/* -------------------------------------------
+   RESPONSIVE
+------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .services {
+    padding: 70px 20px;
   }
-  
+
   .services h2 {
-    font-size: 1.8rem;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    font-size: 2rem;
+    margin-bottom: 40px;
   }
 
-  .gradient-icon {
-    font-size: 3rem;
-    background: linear-gradient(90deg, #b527e0, #383b9e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-  }
-
-  .description {
-    text-align: left;
-    margin: 10px;
-    margin-top: 30px;
-    opacity: 0.85;
-    line-height: 1.6;
-  }
-  
-  .cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  
   .card {
-    background-color: #1a1a1a;
-    border-radius: 14px;
-    padding: 30px 20px;
-    width: 300px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
+    padding: 28px 22px;
   }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    cursor: pointer;
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
   }
-  
-  .card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 14px;
-    padding: 2px;
-    box-sizing: border-box;
-    pointer-events: none;
-    background: none;
-    z-index: 1;
-  }
-  
-  .card.animate-border::before {
-    animation: drawBorder 0.8s forwards;
-    background: linear-gradient(90deg, #9927e0, #383b9e);
-    mask: 
-      linear-gradient(#000 0 0) content-box, 
-      linear-gradient(#000 0 0);
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box, 
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    -webkit-mask-composite: destination-out;
-    border-radius: 14px;
-  }
-  
-  @keyframes drawBorder {
-    0% {
-      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-    }
-    25% {
-      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    }
-    50% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
-    }
-    75% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    100% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card i {
-    font-size: 2.2rem;
-    margin-bottom: 16px;
-    color: white;
-  }
-  
-  .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 15px;
-  }
-  
-  .learn-more {
-    font-size: 0.9rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-block;
-    margin-top: 10px;
-  }
-  
-  .cta-button {
-    margin-top: 60px;
-    background: white;
-    color: black;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    background: #eaeaea;
-  }
+}

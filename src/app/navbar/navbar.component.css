@@ -39,6 +39,31 @@
   gap: 15px;
 }
 
+.logo-link {
+  color: inherit;               /* garde la même couleur que le texte environnant */
+  text-decoration: none;        /* enlève le soulignement */
+  font-weight: inherit;         /* garde la même épaisseur de texte */
+  font-size: inherit;           /* garde la même taille */
+  cursor: pointer;
+}
+
+.logo-link:hover {
+  opacity: 0.9;                 /* léger effet hover, facultatif */
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 1.5rem; /* espace avant l'icône globe */
+  font-weight: 800;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .language-switcher {
   position: relative;
   background: rgba(255, 255, 255, 0.12);
@@ -204,7 +229,8 @@
     position: fixed;
     top: 60px;
     right: 20px;
-    background: black;
+    background: rgb(29, 28, 28);
+    border: 1px solid rgb(68, 68, 68);
     padding: 20px;
     border-radius: 10px;
     z-index: 1001;
@@ -221,6 +247,11 @@
   }
   
   @media (max-width: 768px) {
+
+    .navbar-container {
+      padding: 0 12px;
+    }
+
     .nav-actions {
       display: none;
     }

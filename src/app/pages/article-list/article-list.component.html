@@ -1,0 +1,45 @@
+<!-- src/app/pages/article-list/article-list.component.html -->
+
+<div class="articles-wrapper">
+  <section class="articles-header">
+    <p class="badge">LE BLOG IA & WEB</p>
+    <h2>Conseils web, SEO & IA pour booster votre présence en ligne</h2>
+    <p class="subtitle">
+      Découvrez comment un site moderne, responsive et des visuels IA peuvent transformer
+      la visibilité des entreprises.
+    </p>
+  </section>
+
+  <div *ngIf="loading" class="articles-loading">
+    <div class="skeleton-card" *ngFor="let s of [1,2,3]"></div>
+  </div>
+
+  <section class="articles-grid" *ngIf="!loading">
+    <article
+      *ngFor="let a of articles"
+      class="article-card"
+      (click)="openArticle(a.id)"
+    >
+      <div class="article-card-image-wrapper">
+        <img *ngIf="a.image" [src]="a.image" [alt]="a.title" />
+        <div class="cover-overlay"></div>
+      </div>
+
+      <div class="article-card-content">
+        <p class="article-meta">
+          <span class="meta-pill">Article</span>
+          <span class="meta-date">{{ a.date | date:"dd-MM-yyyy" }}</span>
+        </p>
+        <h3>{{ a.title }}</h3>
+        <p class="excerpt">
+          {{ a.metaDescription }}
+        </p>
+
+        <button class="read-more">
+          Lire l’article
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </article>
+  </section>
+</div>

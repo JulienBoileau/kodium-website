@@ -1,0 +1,98 @@
+.actifs-digitaux-section {
+    padding: 80px 40px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 40px;
+  }
+  
+  .apps-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .app-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 190px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+  }
+  
+  .app-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 30px rgba(153, 39, 224, 0.4);
+  }
+  
+  .phone-frame {
+    background: black;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .phone-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain;
+    filter: brightness(0.7);    
+    transition: filter 0.3s ease;
+}
+
+.app-card:hover .phone-frame img {
+  filter: brightness(0.9);    
+}
+  
+  .app-card h3 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .app-card p {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  
+  .app-link {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .app-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #9927e0, #383b9e, #00e0ff);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+  }
+  
+  .app-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .app-link:hover {
+    color: #ddd;
+  }
+ 

@@ -1,0 +1,307 @@
+.contact-section {
+  min-height: 100vh;
+  padding: 140px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 640px;
+}
+
+/* Ligne du titre + icône */
+.contact-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Icône d'information */
+.title-info .info-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 1.15rem;
+  background-color: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: white;
+}
+
+.title-info .info-icon:hover {
+  transform: scale(1.15);
+  background-color: rgba(255,255,255,0.25);
+}
+
+/* Tooltip */
+.title-info .info-tooltip {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background: rgba(20,20,20,0.95);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  width: 280px;
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 22px rgba(0,0,0,0.35);
+  z-index: 30;
+}
+
+/* Affichage au survol */
+.title-info:hover .info-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+.contact-subtitle {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* Status banners */
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.status-banner .icon {
+  font-size: 1.2rem;
+}
+
+.status-banner.success {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.status-banner.error {
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.45);
+}
+
+.contact-form .form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  backdrop-filter: blur(6px);
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(108, 99, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Type selection */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.type-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.checkbox-group input[type="radio"] {
+  accent-color: #6c63ff;
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 14px 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.05rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.03);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Honeypot invisible */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Groupe de cartes */
+.type-card-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+/* Carte de choix */
+.type-card {
+  flex: 1;
+  min-width: 140px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.type-card:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+
+/* Cacher l’input radio mais garder accessibilité */
+.type-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Contenu card */
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+}
+
+.card-content i {
+  font-size: 1.3rem;
+  opacity: 0.85;
+}
+
+
+/* État sélectionné */
+.type-card.selected {
+  border-color: rgba(108, 99, 255, 0.8);
+  background: rgba(108, 99, 255, 0.18);
+  box-shadow:
+    0 0 10px rgba(108, 99, 255, 0.5),
+    inset 0 0 10px rgba(108, 99, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.type-card.selected .card-content i {
+  color: #a79dff;
+}
+
+.profile-label {
+  display: block;
+  margin-bottom: 0px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: white;
+  opacity: 0.9;
+}
+
+#profile {
+  margin-bottom: 4px;
+}
+
+#profile-desc {
+  font-weight: 300;
+  color: #a7a7a7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .contact-container {
+    padding: 24px 16px;   
+  }
+
+  .type-card-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .type-card {
+    width: 100%;
+    min-width: unset;      /* évite le dépassement */
+    box-sizing: border-box;
+  }
+
+  .card-content {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

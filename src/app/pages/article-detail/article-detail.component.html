@@ -1,0 +1,30 @@
+<!-- src/app/pages/article-detail/article-detail.component.html -->
+
+<div class="article-detail-container" *ngIf="article">
+  <div class="article-detail-header">
+    <button class="back-button" routerLink="/blog">
+      ← Retour au blog
+    </button>
+
+    <p class="badge">Article • Blog IA & Web</p>
+
+    <h1>{{ article.title }}</h1>
+
+    <div class="meta-row">
+      <span class="meta-date">
+        {{ article.date | date:"dd-MM-yyyy" }}
+      </span>
+      <span class="dot-separator">•</span>
+      <span class="meta-reading" *ngIf="readingTimeMinutes">
+        {{ readingTimeMinutes }} min de lecture
+      </span>
+    </div>
+  </div>
+
+  <div class="cover-wrapper" *ngIf="article.image">
+    <img [src]="article.image" [alt]="article.title" />
+    <div class="cover-gradient"></div>
+  </div>
+
+  <div class="article-content markdown-body" [innerHTML]="htmlContent"></div>
+</div>

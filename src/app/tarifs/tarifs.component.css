@@ -1,0 +1,179 @@
+/* SECTION */
+.tarifs-page {
+  padding: 120px 40px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+/* HEADER */
+.tarifs-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.tarifs-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.tarifs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CARTES TARIFS */
+.tarif-card {
+  padding: 40px 30px;
+  border-radius: 22px;
+  position: relative;
+  text-align: left;
+  transition: 0.35s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* FOND COLORÉ */
+.colored {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 40%, #2d1b55 100%);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* HOVER */
+.tarif-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(110, 60, 255, 0.5),
+              0 0 35px rgba(50, 100, 255, 0.4);
+}
+
+/* ICÔNES */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4f5df8, #9333ea);
+  margin-bottom: 25px;
+}
+
+.icon-box i {
+  font-size: 1.8rem;
+}
+
+/* BADGE */
+.popular {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: linear-gradient(90deg, #9333ea, #4f5df8);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* TITRE + PRIX */
+.tarif-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.tarif-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #6d7cff, #b184ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 10px 0 22px;
+}
+
+/* DESCRIPTION */
+.tarif-desc {
+  opacity: 0.85;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* LISTES */
+.features-list,
+.included ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+
+.features-list li,
+.included li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+/* PUCE CARACTÉRISTIQUES */
+.features-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #b48cff;
+  font-size: 1.2rem;
+}
+
+/* PUCE INCLUS */
+.included li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #5eff9d;
+  font-size: 1rem;
+}
+
+/* CTA */
+.cta-btn {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #4f5df8, #9333ea);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(140, 82, 255, 0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+
+  .tarifs-page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 100px 20px;
+  }
+
+  .tarifs-grid {
+    grid-template-columns: 1fr !important;  /* 1 colonne full width */
+    gap: 40px;
+  }
+
+  .tarif-card {
+    padding: 28px 22px;      /* évite tout débordement interne */
+    box-sizing: border-box;  /* sécurise le calcul de largeur */
+    width: 100%;             /* empêche toute extension hors écran */
+  }
+
+  .tarifs-title {
+    font-size: 2.2rem;
+  }
+}

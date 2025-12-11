@@ -1,127 +1,247 @@
+/* SECTION */
 .portfolio-section {
-    padding: 80px 40px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    position: relative;
-  }
+  position: relative;
+  text-align: center;
+  padding: 90px 40px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+.portfolio-header {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto 50px auto;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+/* CARROUSEL WRAPPER */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* CARROUSEL */
+.portfolio-carousel {
+  display: flex;
+  gap: 32px;               /* espace fixe entre cartes */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
   
+}
+.portfolio-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARDS */
+.portfolio-item {
+  min-width: 380px;
+  max-width: 420px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+  transition: 0.35s ease;
+  position: relative;
+  margin-top: 10px;
+}
+
+/* IMAGE */
+.image-wrapper {
+  height: 220px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.35s ease;
+}
+
+.view-btn {
+  padding: 12px 22px;
+  border-radius: 35px;
+  background: linear-gradient(90deg, #3f5eba, #3e218d);
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.35s ease;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* TAGS */
+.tags {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.tags span {
+  background: rgba(0,0,0,0.75);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* HOVER EFFECTS */
+.portfolio-item:hover img {
+  transform: scale(1.06);
+}
+
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+
+.portfolio-item:hover .view-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-item:hover {
+  box-shadow:
+    0 0 12px rgba(35, 87, 240, 0.5),
+    0 0 18px rgba(120, 52, 231, 0.5);
+}
+
+/* FLÈCHES CARROUSEL */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: 0.28s ease;
+  z-index: 10;
+}
+
+.carousel-arrow.right {
+  right: -10px;
+}
+
+.carousel-arrow.left {
+  left: -10px;
+}
+
+.carousel-arrow:hover {
+  background: linear-gradient(90deg, #2357f0, #7834e7);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* ---------------- BOUTON TARIFS ---------------- */
+
+/* Wrapper centré */
+.pricing-btn-wrapper {
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Bouton Tarifs */
+.pricing-btn {
+  padding: 12px 28px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.pricing-btn:hover {
+  background: linear-gradient(90deg, #2043ad, #3a2aa1);
+  transform: translateY(-3px);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 900px) {
+  .portfolio-item {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .image-wrapper {
+    height: 190px;
+  }
+
+  .carousel-arrow.right {
+    right: 0;
+  }
+
+  .carousel-arrow.left {
+    left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-item {
+    min-width: 260px;
+    max-width: 260px;
+  }
+
+  .image-wrapper {
+    height: 170px;
+  }
+
   .section-title {
     font-size: 1.8rem;
-    font-weight: 400;
-    font-weight: bold;
-    margin-bottom: 50px;
   }
-  
-  .portfolio-carousel {
-    position: relative;
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
+
+  .pricing-btn {
+    padding: 10px 22px;
+    font-size: 0.95rem;
   }
-  
-  .portfolio-carousel::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-  }
-  
-  .portfolio-item {
-    position: relative;
-    min-width: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .portfolio-item:hover {
-    transform: scale(1.03);
-  }
-  
-  .portfolio-item:hover,
-  .portfolio-item.active {
-    border: 3px solid transparent;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #9927e0, #383b9e, #00e0ff) border-box;
-  }
-  
-  .image-wrapper {
-    position: relative;
-  }
-  
-  .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-  }
-  
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4); /* assombrissement par défaut */
-    border-radius: 12px;
-  }
-  
-  .click-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75); /* filtre opaque */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.3s ease forwards;
-    border-radius: 12px;
-  }
-  
-  .view-btn {
-    padding: 12px 24px;
-    background: linear-gradient(90deg, #9927e0, #383b9e, #00e0ff);
-    color: white;
-    font-weight: bold;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-  }
-  
-  .view-btn:hover {
-    transform: scale(1.1);
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .tags {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    display: flex;
-    gap: 8px;
-  }
-  
-  .tags span {
-    background: black;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-  }
-  
-  .circle-btn {
-    position: absolute;
-    top: 66%;
-    right: 30px;
-    background: black;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
+}
+
+
